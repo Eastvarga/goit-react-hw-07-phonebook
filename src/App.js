@@ -12,7 +12,13 @@ function App({ loadingContacts, errorContacts }) {
       <Form />
       <h2 className="sub_title">Contacts</h2>
       {loadingContacts && <h1>Loading...</h1>}
-      {errorContacts && <h1>{`${errorContacts}`}</h1>}
+      {errorContacts && (
+        <div className="error">
+          <h1>{errorContacts.name}</h1>
+          <p>{errorContacts.message}</p>
+          <p>{errorContacts.stack}</p>
+        </div>
+      )}
       <FindInput />
       <ContactList />
     </div>

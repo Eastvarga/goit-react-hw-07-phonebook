@@ -1,7 +1,9 @@
-import { filterstyle, title } from "./styles.module.css";
+import { filterstyle, title } from './styles.module.css';
 
-import actions from "../../redux/contacts/contacts-action";
-import { connect } from "react-redux";
+import actions from '../../redux/contacts/contacts-action';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
+
+import { connect } from 'react-redux';
 
 function FindInput({ onFilterChange, filter }) {
   return (
@@ -22,14 +24,14 @@ function FindInput({ onFilterChange, filter }) {
   );
 }
 
-const mapStateToProps = ({ contacts: { filter } }) => {
+const mapStateToProps = state => {
   return {
-    filter,
+    filter: contactsSelectors.getFilter(state),
   };
 };
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onFilterChange: (event) =>
+    onFilterChange: event =>
       dispatch(actions.filterChange(event.currentTarget.value)),
   };
 };

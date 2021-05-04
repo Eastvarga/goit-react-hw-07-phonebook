@@ -1,29 +1,31 @@
-import { Component } from "react";
-import { connect } from "react-redux";
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
+
 // import { v4 as uuidv4 } from "uuid";
 
-import operations from "../../redux/contacts/contacts-operations";
-import { form, nameStyle, input, tel, button } from "./styles.module.css";
+import operations from '../../redux/contacts/contacts-operations';
+import { form, nameStyle, input, tel, button } from './styles.module.css';
 const INITIAL_STATE = {
-  name: "",
-  number: "",
+  name: '',
+  number: '',
 };
 
 class Form extends Component {
   state = {
-    name: "",
-    number: "",
+    name: '',
+    number: '',
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     const name = this.state.name;
-    if (this.props.items.some((elem) => elem.name === name)) {
+    if (this.props.items.some(elem => elem.name === name)) {
       window.alert(`${name} is already in contacts`);
       this.reset();
       return;
@@ -75,12 +77,12 @@ class Form extends Component {
     );
   }
 }
-const mapStateToProps = ({ contacts: { items } }) => {
+const mapStateToProps = state => {
   return {
-    items,
+    items: contactsSelectors.getContactsItems(state),
   };
 };
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     onAddContact: ({ name, number }) =>
       dispatch(
@@ -88,7 +90,7 @@ const mapDispatchToProps = (dispatch) => {
           // id: uuidv4(),
           name,
           number,
-        })
+        }),
       ),
   };
 };

@@ -34,12 +34,21 @@ const deleteContact = id => dispatch => {
     .catch(error => dispatch(deleteContactError(error)));
 };
 
-const fetchContacts = () => dispatch => {
+//async method wariant
+const fetchContacts = () => async dispatch => {
   dispatch(fetchContactRequest());
 
-  axios
-    .get('/contacts')
-    .then(({ data }) => dispatch(fetchContactSuccess(data)))
-    .catch(error => dispatch(fetchContactError(error.massage)));
+  try {
+    const { data } = await axios.get('/contacts');
+
+    dispatch(fetchContactSuccess(data));
+  } catch (error) {
+    dispatch(fetchContactError(error));
+  }
+
+  // axios
+  //   .get('/contacts')
+  //   .then(({ data }) => dispatch(fetchContactSuccess(data)))
+  //   .catch(error => dispatch(fetchContactError(error)));
 };
 export default { addContact, deleteContact, fetchContacts };

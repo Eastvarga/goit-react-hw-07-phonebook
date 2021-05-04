@@ -6,7 +6,7 @@ import { contactsSelectors } from './redux/contacts';
 import './styles.css';
 
 function App({ isLoadingContacts, errorContacts }) {
-  console.dir(errorContacts);
+  // console.dir(errorContacts);
   return (
     <div className="container">
       <h1 className="main_title">Phonebook</h1>

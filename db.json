@@ -1,22 +1,3 @@
 {
-  "contacts": [
-    {
-      "name": "Rosie Simpson",
-      "number": "23232323233",
-      "complited": false,
-      "id": 3
-    },
-    {
-      "name": "Serzhalex",
-      "number": "33333333333",
-      "complited": false,
-      "id": 4
-    },
-    {
-      "name": "eastvarga",
-      "number": "23232323233",
-      "complited": false,
-      "id": 5
-    }
-  ]
+  "contacts": []
 }

@@ -2,7 +2,7 @@ import Form from './components/Form';
 import ContactList from './components/ContactList';
 import FindInput from './components/FindInput';
 import { connect } from 'react-redux';
-import contactsSelectors from './redux/contacts/contacts-selectors';
+import { contactsSelectors } from './redux/contacts';
 import './styles.css';
 
 function App({ isLoadingContacts, errorContacts }) {

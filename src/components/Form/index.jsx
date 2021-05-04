@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import contactsSelectors from '../../redux/contacts/contacts-selectors';
+import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
 // import { v4 as uuidv4 } from "uuid";
 
-import operations from '../../redux/contacts/contacts-operations';
+// import contactsOperations from '../../redux/contacts/contacts-operations';
 import { form, nameStyle, input, tel, button } from './styles.module.css';
 const INITIAL_STATE = {
   name: '',
@@ -86,7 +86,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onAddContact: ({ name, number }) =>
       dispatch(
-        operations.addContact({
+        contactsOperations.addContact({
           // id: uuidv4(),
           name,
           number,

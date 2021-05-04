@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
-import operations from '../../redux/contacts/contacts-operations';
-import contactsSelectors from '../../redux/contacts/contacts-selectors';
+import { React, useEffect } from 'react';
+
+import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
 // import PropTypes from "prop-types";
 import { list, item, text, button } from './styles.module.css';
@@ -44,8 +44,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onDeleteContact: event =>
-      dispatch(operations.deleteContact(event.target.id)),
-    fetchContacts: () => dispatch(operations.fetchContacts()),
+      dispatch(contactsOperations.deleteContact(event.target.id)),
+    fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

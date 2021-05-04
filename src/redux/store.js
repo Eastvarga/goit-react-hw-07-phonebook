@@ -1,16 +1,16 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import contactsReducer from "../redux/contacts/contacts-reducer";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import contactsReducer from '../redux/contacts/contacts-reducer';
 import {
-  persistStore,
+  // persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
+} from 'redux-persist';
 
-import logger from "redux-logger";
+import logger from 'redux-logger';
 
 // console.log("getDefaultMiddleware ", getDefaultMiddleware());
 const middleware = [
@@ -27,7 +27,7 @@ const store = configureStore({
     contacts: contactsReducer,
   },
   middleware,
-  devTools: process.env.NODE_ENV === "development",
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 // const persistor = persistStore(store);

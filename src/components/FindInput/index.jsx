@@ -1,7 +1,6 @@
 import { filterstyle, title } from './styles.module.css';
 
-import actions from '../../redux/contacts/contacts-action';
-import contactsSelectors from '../../redux/contacts/contacts-selectors';
+import { contactsSelectors, actions } from '../../redux/contacts';
 
 import { connect } from 'react-redux';
 

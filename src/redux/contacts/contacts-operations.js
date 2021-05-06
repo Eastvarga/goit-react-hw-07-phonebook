@@ -1,6 +1,6 @@
 import axios from 'axios';
 import actions from './contacts-action';
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://localhost:4040';
 
 const {
   addContactRequest,

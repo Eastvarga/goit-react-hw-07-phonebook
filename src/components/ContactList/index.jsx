@@ -8,6 +8,7 @@ import { list, item, text, button } from './styles.module.css';
 
 function ContactList({ onDeleteContact, fetchContacts, items }) {
   useEffect(() => fetchContacts(), []);
+
   return (
     <ul className={list}>
       {items.length > 0 &&
